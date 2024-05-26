@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+      // 配置@符指向src目录及其子目录：实现路径提示：好像默认就配置好了
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
+// typescript对应tsconfig.json
+// 当然js对应jsconfig.json
