@@ -7,12 +7,12 @@ import {
 const routes = [
   {
     path: "/",
-    component: () => import("../views/index.vue"),
+    component: () => import("@/views/index.vue"),
   },
   // 这里是设置根路径路由
   {
     path: "/content",
-    component: () => import("../views/content.vue"),
+    component: () => import("@/views/content.vue"),
   },
   // 这里是定义内容组件的路由
 ];
