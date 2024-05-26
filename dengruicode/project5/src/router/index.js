@@ -19,13 +19,30 @@ const routes = [
     name: "member",
     component: () => import("@/views/user.vue"),
   },
+  {
+    path: "/vip",
+    component: () => import("@/views/vip.vue"),
+    children: [
+      {
+        path: "",
+        component: () => import("@/views/vip/default.vue"),
+      }, // 后面接空可以表示默认路由
+      {
+        path: "order",
+        component: () => import("@/views/vip/order.vue"),
+      },
+      {
+        path: "info",
+        component: () => import("@/views/vip/info.vue"),
+      },
+    ],
+  },
 ];
 
 const router = createRouter({
-  // history: createWebHistory(),
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 });
 
 export default router;
-// project4的作用主要是定义别名，定义路由名称，编程式导航
+// project5的作用主要嵌套路由结合共享组件
