@@ -9,7 +9,7 @@ const routes = [
     path: "/",
     component: () => import("@/views/index.vue"),
   },
-  // 这里是设置根路径路由
+  // 这里是设置根路径路由  ：：修改jsconfig.json实现@成功表示路径：ctrl+点击也可以正常转到对应文件
   {
     path: "/content",
     component: () => import("@/views/content.vue"),
