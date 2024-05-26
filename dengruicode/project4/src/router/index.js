@@ -7,6 +7,9 @@ import {
 const routes = [
   {
     path: "/",
+    // alias: "/home",
+    // http://localhost:5173/#/home可以访问主页：下面是多个别名
+    alias: ["/home", "/index"],  
     component: () => import("@/views/index.vue"),
   },
   {
@@ -17,7 +20,6 @@ const routes = [
     path: "/user/:id/name/:name?",
     component: () => import("@/views/user.vue"),
   },
-  // 如果name是不必须的就使用问号
 ];
 
 const router = createRouter({
@@ -27,10 +29,4 @@ const router = createRouter({
 });
 
 export default router;
-// project3的主要功能是实现使用查询字符串或路径传递参数
-// 例如：http://localhost:5173/#/content?id=100&title=%E9%82%93%E7%91%9E%E7%BC%96%E7%A8%8B
-
-// 当访问上面这个俩姐的时候内容页面显示的内容是：
-// 内容页 - 墨白
-// id:100
-// title:邓瑞编程
+// project4的作用主要是定义别名，定义路由名称，编程式导航
