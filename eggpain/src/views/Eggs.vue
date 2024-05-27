@@ -19,7 +19,7 @@ export default {
   <!-- {{ dataEgg }} -->
   <!-- ok实现了动态显示内容 -->
   <h1>{{ dataEgg.name }}</h1>
-  <P>{{ dataEgg.description }}</P>
+  <p>{{ dataEgg.description }}</p>
   <p>{{ dataEgg.flavour }}</p>
   <img :src="`../../src/assets/images/${dataEgg.image}`">
   <!-- 动态解析数据：实现动态页面（局部） -->

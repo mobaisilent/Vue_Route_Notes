@@ -3,7 +3,15 @@ import dataEggs from "./data.json";
 export default {
   data() {
     return {
-      dataEggs,
+      dataEggs
+    }
+  },
+  methods: {
+    backward() {
+      this.$router.go(-1)
+    },
+    forward() {
+      this.$router.go(1)
     }
   }
 }
@@ -20,6 +28,9 @@ export default {
 
   </nav>
   <router-view />
+  <br>
+  <button @click="backward">退后</button>
+  <button @click="forward">前进</button>
 </template>
 
 <style scoped></style>
