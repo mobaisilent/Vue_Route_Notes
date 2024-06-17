@@ -13,3 +13,5 @@ const router = createRouter({
 });
 
 export default router;
+
+// 要实现懒加载是要修改这里对于component
