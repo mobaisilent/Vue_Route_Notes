@@ -578,6 +578,82 @@ npm run build
 
 > 方便App.vue的书写
 
+修改index.js，截取部分代码如下：
+
+```js
+  const routes = [
+    { path: '/', component: Home },
+    { path: '/egg/:eggType', name:"eggs",component:()=> import('../views/Eggs.vue') },
+    {path:'/egg',redirect:'/egg/chicken-egg'},
+    { path: '/:pathMatch(.*)*', component:()=> import('../views/NotFound.vue') },
+  ];
+```
+
+添加name属性即可。
+
+修改App.vue的使用路由组件的部分代码如下：
+
+```vue
+  <nav>
+    <RouterLink to="/">首页</RouterLink> |
+    <RouterLink v-for="dataEgg in dataEggs" :key="dataEgg.id" :to="{name: 'eggs',params:{eggType:dataEgg.type}}">
+      <!-- 注意给eggType赋予属性 -->
+      {{ dataEgg.name }} |
+    </RouterLink>
+  </nav>
+  <RouterView />
+```
+
+## 前进和后退
+
+> 原理是直接使用router对应的函数
+
+修改App.vue如下：
+
+### App.vue
+
+```vue
+<script setup>
+import { RouterLink, RouterView, useRouter } from 'vue-router'
+import dataEggs from './data.json'
+
+const router = useRouter();
+
+function forward() {
+  router.go(1);
+}
+
+function backward() {
+  router.go(-1);
+}
+// 获取router对象
+
+</script>
+
+<template>
+  <nav>
+    <RouterLink to="/">首页</RouterLink> |
+    <RouterLink v-for="dataEgg in dataEggs" :key="dataEgg.id" :to="{ name: 'eggs', params: { eggType: dataEgg.type } }">
+      {{ dataEgg.name }} |
+    </RouterLink>
+  </nav>
+  <RouterView />
+  <!-- <router-view></router-view> -->
+  <button @click="forward">前进</button>
+  <button @click="backward">后退</button>
+  <!-- 创建对应两个函数即可 -->
+</template>
+
+<style scoped>
+.egg-active {
+  color: red;
+}
+</style>
+
+```
+
+效果就是前进/后退一层路由，就不展示了。
+
 ## 补充
 
 ### style.css

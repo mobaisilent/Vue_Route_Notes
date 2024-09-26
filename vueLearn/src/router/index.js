@@ -4,7 +4,7 @@
 
   const routes = [
     { path: '/', component: Home },
-    { path: '/egg/:eggType', component:()=> import('../views/Eggs.vue') },
+    { path: '/egg/:eggType', name:"eggs",component:()=> import('../views/Eggs.vue') },
     {path:'/egg',redirect:'/egg/chicken-egg'},
     { path: '/:pathMatch(.*)*', component:()=> import('../views/NotFound.vue') },
   ];
